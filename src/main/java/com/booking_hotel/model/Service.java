@@ -1,5 +1,8 @@
 package com.booking_hotel.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,7 +16,8 @@ public class Service {
 
   private Integer price;
   
-  private String image_url;
+  @Column(name = "image_url")
+  private String imageUrl;
   
   private Integer status;
   
@@ -43,12 +47,12 @@ public class Service {
     this.price = price;
   }
 
-  public String getImage_url() {
-    return image_url;
+  public String getImageUrl() {
+    return imageUrl;
   }
 
-  public void setImage_url(String image_url) {
-    this.image_url = image_url;
+  public void setImageUrl(String imageUrl) {
+    this.imageUrl = imageUrl;
   }
   
   public Integer getStatus() {
@@ -66,4 +70,7 @@ public class Service {
   public void setRemark(String remark) {
     this.remark = remark;
   }
+
+  @ManyToMany(mappedBy = "services")
+	private Set<Reservation> reservations = new HashSet<>();
 }

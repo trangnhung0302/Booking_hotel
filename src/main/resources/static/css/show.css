@@ -1,0 +1,13 @@
+.body {
+  padding:  100px 150px;
+  min-height: 100vh;
+}
+.btn-xn {
+  text-align:  center;
+}
+.success {
+  color: green;
+}
+.cancelled {
+  color: red;
+}

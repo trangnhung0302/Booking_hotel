@@ -10,4 +10,10 @@ import com.booking_hotel.model.Service;
 public interface ServiceRepository extends JpaRepository<Service, Integer> {
   @Query("SELECT s FROM Service s WHERE s.status = 10")
   public List<Service> enable();
+
+  public List<Service> findByNameContainingAndPriceGreaterThanEqualAndPriceLessThanEqual(String name, int minPrice,
+      int maxPrice);
+
+  public List<Service> findByNameContainingAndPriceGreaterThanEqualAndPriceLessThanEqualAndStatus(String name,
+      int minPrice, int maxPrice, int status);
 }

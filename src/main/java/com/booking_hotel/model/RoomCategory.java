@@ -1,5 +1,8 @@
 package com.booking_hotel.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,18 +14,65 @@ public class RoomCategory {
 		
 	private String name;
 	
-	private Integer max_of_people;
+	@Column(name = "max_number_of_people")
+	private Integer maxNumberOfPeople;
 	
-	private Integer price_of_day;
+	public Integer getMaxNumberOfPeople() {
+		return maxNumberOfPeople;
+	}
+
+	public void setMaxNumberOfPeople(Integer maxNumberOfPeople) {
+		this.maxNumberOfPeople = maxNumberOfPeople;
+	}
+
+	@Column(name = "price_of_day")
+	private Integer priceOfDay;
 	
-	private Integer price_overnight;
+	public Integer getPriceOfDay() {
+		return priceOfDay;
+	}
+
+	public void setPriceOfDay(Integer priceOfDay) {
+		this.priceOfDay = priceOfDay;
+	}
+
+	@Column(name = "price_overnight")
+	private Integer priceOvernight;
 	
-	private Integer price_of_hour;
+	public Integer getPriceOvernight() {
+		return priceOvernight;
+	}
+
+	public void setPriceOvernight(Integer priceOvernight) {
+		this.priceOvernight = priceOvernight;
+	}
+
+	@Column(name = "price_of_hour")
+	private Integer priceOfHour;
 	
-	private String image_url;
+	public Integer getPriceOfHour() {
+		return priceOfHour;
+	}
+
+	public void setPriceOfHour(Integer priceOfHour) {
+		this.priceOfHour = priceOfHour;
+	}
+
+	@Column(name = "image_url")
+	private String imageUrl;
 	
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	@Column(name = "status")
 	private Integer status;
 	
+	@Column(name = "remark")
 	private String remark;
 
 	public Integer getId() {
@@ -41,46 +91,6 @@ public class RoomCategory {
 		this.name = name;
 	}
 
-	public Integer getMax_of_people() {
-		return max_of_people;
-	}
-
-	public void setMax_of_people(Integer max_of_people) {
-		this.max_of_people = max_of_people;
-	}
-
-	public Integer getPrice_of_day() {
-		return price_of_day;
-	}
-
-	public void setPrice_of_day(Integer price_of_day) {
-		this.price_of_day = price_of_day;
-	}
-
-	public Integer getPrice_overnight() {
-		return price_overnight;
-	}
-
-	public void setPrice_overnight(Integer price_overnight) {
-		this.price_overnight = price_overnight;
-	}
-
-	public Integer getPrice_of_hour() {
-		return price_of_hour;
-	}
-
-	public void setPrice_of_hour(Integer price_of_hour) {
-		this.price_of_hour = price_of_hour;
-	}
-
-	public String getImage_url() {
-		return image_url;
-	}
-
-	public void setImage_url(String image_url) {
-		this.image_url = image_url;
-	}
-
 	public Integer getStatus() {
 		return status;
 	}
@@ -97,7 +107,8 @@ public class RoomCategory {
 		this.remark = remark;
 	}
 
-	
+	@OneToMany(mappedBy = "roomCategory")
+	private Set<Room> room = new HashSet<>();
 }
     
     

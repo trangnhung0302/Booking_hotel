@@ -1,0 +1,36 @@
+.d-flex {
+  display: flex;
+}
+.btn_status {
+  width: 100px;
+  height: 40px;
+}
+.btn_active {
+  width: 120px;
+  height: 50px;
+}
+.modal {
+  text-align: -webkit-center;
+  background-color: #2125298a;
+}
+.modal-content {
+  width: 500px;
+  top: 175px;
+  padding: 10px 20px 10px 20px;
+}
+.form-input {
+  text-align: left;
+}
+.message_success {
+  width: 100%;
+  background-color: greenyellow;
+  padding: 20px;
+}
+.message_fail {
+  width: 100%;
+  background-color: red;
+  padding: 20px;
+}
+.errors {
+  color: red;
+}

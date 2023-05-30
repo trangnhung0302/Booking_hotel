@@ -13,16 +13,43 @@
 		<jsp:include page="../layout/users/navbar.jsp" />
 		<div class="container">
 			<div class="w100pt">
-				<form id="login_form" class="form_class" action="/j_spring_security_check" method="post">
+				<form id="login_form" class="form_class" action="/register" method="post" novalidate>
 					<div class="form_div">
-						<label>Name:</label>
-						<input type="text" name="name" class="field_class" id="name" placeholder="Enter name">
-						<label>Email:</label>
-						<input type="email" class="field_class" id="email" placeholder="Enter email" name="email">
+						<label>Name: (*)</label>
+						<input type="text" name="name" class="field_class" id="name" placeholder="Enter name" value="${ name }">
+						<c:if test="${ errors.name != null }">
+							<div class="errors">
+								<span >${ errors.name }</span>
+							</div>
+						</c:if>
+						<label>Email: (*)</label>
+						<input type="email" class="field_class" id="email" placeholder="Enter email" name="email" value="${ email }">
+						<c:if test="${ errors.email != null }">
+							<div class="errors">
+								<span >${ errors.email }</span>
+							</div>
+						</c:if>
 						<label>Phone:</label>
-						<input type="tel" name="phone" class="field_class" id="phone" placeholder="Enter phone">
-						<label>Password:</label>
-						<input type="password" id="pass" class="field_class" id="password" placeholder="Enter password" name="password">
+						<input type="tel" name="tel" class="field_class" id="phone" placeholder="Enter phone" value="${ tel }">
+						<c:if test="${ errors.tel != null }">
+							<div class="errors">
+								<span >${ errors.tel }</span>
+							</div>
+						</c:if>
+						<label>Password: (*)</label>
+						<input type="password" class="field_class" id="password" placeholder="Enter password" name="password" value="${ password }">
+						<c:if test="${ errors.password != null }">
+							<div class="errors">
+								<span >${ errors.password }</span>
+							</div>
+						</c:if>
+						<label>RePassword: (*)</label>
+						<input type="password" class="field_class" id="rePassword" placeholder="Enter confirm password" name="rePassword">
+						<c:if test="${ errors.rePassword != null }">
+							<div class="errors">
+								<span >${ errors.rePassword }</span>
+							</div>
+						</c:if>
 						<button type="submit" class="submit_class">SIGN UP</button>
 					</div>
 				</form>

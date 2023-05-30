@@ -14,3 +14,19 @@ body {
 .mb_large {
   margin-bottom: 15px;
 }
+.w3-dropdown-content {
+  top: 20px;
+  right: 5px;
+}
+.errors {
+  color: red;
+}
+.disabled {
+  pointer-events:none;
+  background-color: #dddddd;
+}
+.message_success {
+  width: 100%;
+  background-color: greenyellow;
+  padding: 20px;
+}

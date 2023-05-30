@@ -32,8 +32,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated().and()
                 .formLogin(login -> login.loginPage("/login").permitAll()
                         .loginProcessingUrl("/j_spring_security_check")
-                        .defaultSuccessUrl("/booking")
-                        .failureUrl("/login?error=true")
+                        .defaultSuccessUrl("/login_success")
+                        .failureUrl("/login_false")
                         .usernameParameter("email")
                         .passwordParameter("password")).logout(logout -> logout.logoutUrl("/logout").logoutSuccessUrl("/login"));
 	}
@@ -41,10 +41,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder());
-		//auth.authenticationProvider(authenticationProvider());
-	}
-	
-	protected void checkAuthentication() {
-		System.out.println("xxxxxxxxxxxxxxxxxx");
 	}
 }

@@ -1,5 +1,8 @@
 package com.booking_hotel.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -35,5 +38,20 @@ public class Room {
 
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+
+	@ManyToMany(mappedBy = "rooms")
+	private Set<Reservation> reservations = new HashSet<>();
+
+	@ManyToOne
+  @JoinColumn(name = "room_category_id")
+	private RoomCategory roomCategory;
+
+	public RoomCategory getRoomCategory() {
+		return roomCategory;
+	}
+
+	public void setRoomCategory(RoomCategory roomCategory) {
+		this.roomCategory = roomCategory;
 	}
 }
